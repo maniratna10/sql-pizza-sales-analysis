@@ -53,17 +53,16 @@ Aspiring Data Analyst | SQL | Excel | Data Analysis
 
 ---
 
- /* =========================
-   BASIC QUERIES
-   ========================= */
 
--- 1. Retrieve the total number of orders placed
+## BASIC QUERIES
+
+1. Retrieve the total number of orders placed
 ```sql
 SELECT COUNT(order_id) AS total_orders
 FROM orders;
 ```
 
--- 2. Calculate the total revenue generated from pizza sales
+2. Calculate the total revenue generated from pizza sales
 ```sql
 SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_sales
 FROM order_details o
@@ -71,7 +70,7 @@ JOIN pizzas p
 ON o.pizza_id = p.pizza_id;
 ```
 
--- 3. Identify the highest-priced pizza
+3. Identify the highest-priced pizza
 ```sql
 SELECT t.name AS pizza_name, p.price
 FROM pizza_types t
@@ -80,7 +79,7 @@ ON t.pizza_type_id = p.pizza_type_id
 WHERE p.price = (SELECT MAX(price) FROM pizzas);
 ```
 
--- 4. Identify the most common pizza size ordered
+4. Identify the most common pizza size ordered
 ```sql
 SELECT p.size, COUNT(o.order_details_id) AS order_count
 FROM order_details o
@@ -91,7 +90,7 @@ ORDER BY order_count DESC
 LIMIT 1;
 ```
 
--- 5. List the top 5 most ordered pizza types with quantities
+5. List the top 5 most ordered pizza types with quantities
 ```sql
 SELECT pt.name, SUM(od.quantity) AS total_quantity
 FROM order_details od
@@ -104,11 +103,9 @@ ORDER BY total_quantity DESC
 LIMIT 5;
 ```
 
-/* =========================
-   INTERMEDIATE QUERIES
-   ========================= */
+## INTERMEDIATE QUERIES
 
--- 6. Total quantity of each pizza category ordered
+6. Total quantity of each pizza category ordered
 ```sql
 SELECT pt.category, SUM(od.quantity) AS total_quantity
 FROM order_details od
@@ -120,7 +117,7 @@ GROUP BY pt.category
 ORDER BY total_quantity DESC;
 ```
 
--- 7. Distribution of orders by hour of the day
+7. Distribution of orders by hour of the day
 ```sql
 SELECT HOUR(order_time) AS order_hour, COUNT(order_id) AS orders_count
 FROM orders
@@ -128,7 +125,7 @@ GROUP BY order_hour
 ORDER BY orders_count DESC;
 ```
 
--- Category-wise distribution of pizzas
+Category-wise distribution of pizzas
 ```sql
 SELECT category, COUNT(pizza_type_id) AS pizza_count
 FROM pizza_types
@@ -136,7 +133,7 @@ GROUP BY category
 ORDER BY pizza_count DESC;
 ```
 
--- 8. Average number of pizzas ordered per day
+8. Average number of pizzas ordered per day
 ```sql
 SELECT ROUND(AVG(total_quantity), 0) AS avg_orders_per_day
 FROM (
@@ -148,7 +145,7 @@ FROM (
 ) daily_orders;
 ```
 
--- 9. Top 3 most ordered pizza types based on revenue
+9. Top 3 most ordered pizza types based on revenue
 ```sql
 SELECT pt.name, ROUND(SUM(od.quantity * p.price), 0) AS total_revenue
 FROM order_details od
@@ -161,11 +158,9 @@ ORDER BY total_revenue DESC
 LIMIT 3;
 ```
 
-/* =========================
-   ADVANCED QUERIES
-   ========================= */
+ ## ADVANCED QUERIES
 
--- 10. Percentage contribution of each pizza category to total revenue
+10. Percentage contribution of each pizza category to total revenue
 ```sql
 SELECT 
     pt.category,
@@ -187,7 +182,7 @@ GROUP BY pt.category
 ORDER BY revenue_percentage DESC;
 ```
 
--- 11. Cumulative revenue generated over time
+11. Cumulative revenue generated over time
 ```sql
 SELECT 
     order_date,
@@ -206,7 +201,7 @@ FROM (
 ) daily_revenue;
 ```
 
--- 12. Top 3 pizza types by revenue within each category
+12. Top 3 pizza types by revenue within each category
 ```sql
 WITH revenue_cte AS (
     SELECT 
