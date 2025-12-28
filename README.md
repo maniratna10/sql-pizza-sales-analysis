@@ -54,7 +54,7 @@ Aspiring Data Analyst | SQL | Excel | Data Analysis
 ---
 
 
-## BASIC QUERIES
+##  📘 BASIC QUERIES
 
 1. Retrieve the total number of orders placed
 ```sql
@@ -103,7 +103,7 @@ ORDER BY total_quantity DESC
 LIMIT 5;
 ```
 
-## INTERMEDIATE QUERIES
+##  📗 INTERMEDIATE QUERIES
 
 6. Total quantity of each pizza category ordered
 ```sql
@@ -158,7 +158,7 @@ ORDER BY total_revenue DESC
 LIMIT 3;
 ```
 
- ## ADVANCED QUERIES
+ ##  📕 ADVANCED QUERIES
 
 10. Percentage contribution of each pizza category to total revenue
 ```sql
@@ -224,4 +224,11 @@ SELECT category, name, revenue
 FROM rank_cte
 WHERE rank_no <= 3;
 ```
+---
 
+## 📈 Business Insights
+
+- Large-sized pizzas generate the highest revenue
+- Classic category contributes the maximum sales
+- Peak orders are observed during evenings
+- A small number of pizzas contribute to most of the revenue
