@@ -53,27 +53,16 @@ Aspiring Data Analyst | SQL | Excel | Data Analysis
 
 ---
 
-/*
-====================================================
-File Name   : sales_analysis.sql
-Project     : Pizza Shop SQL Analysis
-Description : This file contains Basic, Intermediate,
-              and Advanced SQL queries to analyze
-              pizza sales, revenue, customer ordering
-              patterns, and product performance.
-Database    : MySQL
-Author      : Mani Ratna
-====================================================
-*/
-
 
 /* =========================
    BASIC QUERIES
    ========================= */
 
--- 1. Retrieve the total number of orders placed
+### 1. Retrieve the total number of orders placed
+```sql
 SELECT COUNT(order_id) AS total_orders
 FROM orders;
+```
 
 -- 2. Calculate the total revenue generated from pizza sales
 SELECT ROUND(SUM(o.quantity * p.price), 2) AS total_sales
