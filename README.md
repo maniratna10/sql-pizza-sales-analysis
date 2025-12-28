@@ -54,7 +54,7 @@ Aspiring Data Analyst | SQL | Excel | Data Analysis
 ---
 
 
-/* =========================
+## /* =========================
    BASIC QUERIES
    ========================= */
 
